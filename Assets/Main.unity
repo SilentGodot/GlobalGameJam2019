@@ -226,6 +226,30 @@ Prefab:
       propertyPath: image
       value: 
       objectReference: {fileID: 82909072}
+    - target: {fileID: 114104132704701588, guid: 08b6018701d37274cb3a39040a4f8b52,
+        type: 2}
+      propertyPath: triggers.Array.data[0].image
+      value: 
+      objectReference: {fileID: 21300000, guid: d5b626a10d7427a4e85b9385755a6b74,
+        type: 3}
+    - target: {fileID: 114104132704701588, guid: 08b6018701d37274cb3a39040a4f8b52,
+        type: 2}
+      propertyPath: triggers.Array.data[1].image
+      value: 
+      objectReference: {fileID: 21300000, guid: 5b1117719bb251b46900bf8deb5fabf7,
+        type: 3}
+    - target: {fileID: 114104132704701588, guid: 08b6018701d37274cb3a39040a4f8b52,
+        type: 2}
+      propertyPath: triggers.Array.data[3].image
+      value: 
+      objectReference: {fileID: 21300000, guid: 286f0f416d19bc5409c92e556e0de189,
+        type: 3}
+    - target: {fileID: 114104132704701588, guid: 08b6018701d37274cb3a39040a4f8b52,
+        type: 2}
+      propertyPath: triggers.Array.data[2].image
+      value: 
+      objectReference: {fileID: 21300000, guid: 215170d34edeab64f85a79d465c624f5,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 08b6018701d37274cb3a39040a4f8b52, type: 2}
   m_IsPrefabAsset: 0
@@ -645,8 +669,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1366204893}
   m_LocalRotation: {x: -0, y: -0, z: 0.0040135207, w: 0.99999195}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.551632, y: 3.635376, z: 1.272}
+  m_LocalPosition: {x: 0, y: -0.000000044703, z: 0}
+  m_LocalScale: {x: 0.47773468, y: 0.4650197, z: 1.272}
   m_Children: []
   m_Father: {fileID: 2088675387}
   m_RootOrder: 0
@@ -686,7 +710,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 8150191a8a58af6438b9abbcd320daef, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ca1f707b564578e4c9442c8bc61ea048, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -838,16 +862,17 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.016581714, y: 0.36988878}
-      - {x: -0.1872164, y: 0.3295688}
-      - {x: -0.24909055, y: 0.021597773}
-      - {x: -0.2630868, y: -0.0738519}
-      - {x: -0.20737576, y: -0.28725082}
-      - {x: -0.0039960146, y: -0.270056}
-      - {x: 0.16832113, y: -0.30335283}
-      - {x: 0.2229839, y: -0.23970594}
-      - {x: 0.2574653, y: 0.100352585}
-      - {x: 0.21039939, y: 0.33112627}
+    - - {x: 0.01782751, y: 0.3356707}
+      - {x: -0.04677105, y: 0.30583155}
+      - {x: -0.14227295, y: 0.06511611}
+      - {x: -0.13451004, y: -0.08176434}
+      - {x: -0.120339274, y: -0.271426}
+      - {x: 0.023697436, y: -0.3313772}
+      - {x: 0.077328384, y: -0.29741853}
+      - {x: 0.13629317, y: -0.11500804}
+      - {x: 0.13594747, y: 0.037228465}
+      - {x: 0.11108571, y: 0.14980519}
+      - {x: 0.06401992, y: 0.30343282}
 --- !u!4 &2088675387
 Transform:
   m_ObjectHideFlags: 0
