@@ -141,9 +141,11 @@ _users_IOnLevelStart.ForEach(x=> x.OnLevelStart());
 }namespace Fear {
 namespace Methods {
 public interface IFearsFlee : Tools.IEventMethodBase{ void FearsFlee(); }
+public interface IFearDies : Tools.IEventMethodBase{ void FearDies(); }
 
 }public static class Invoke {
 static List<Methods.IFearsFlee> _users_IFearsFlee  = new List<Methods.IFearsFlee>();
+static List<Methods.IFearDies> _users_IFearDies  = new List<Methods.IFearDies>();
 internal static void RegisterUser(Methods.IFearsFlee user){
 if(user == null) return;
 if(!_users_IFearsFlee.Contains(user)) _users_IFearsFlee.Add(user);
@@ -155,8 +157,19 @@ if(_users_IFearsFlee.Contains(user)) _users_IFearsFlee.Remove(user);
 public static void FearsFlee(){
 _users_IFearsFlee.ForEach(x=> x.FearsFlee());   
 }
+internal static void RegisterUser(Methods.IFearDies user){
+if(user == null) return;
+if(!_users_IFearDies.Contains(user)) _users_IFearDies.Add(user);
+}
+internal static void UnRegisterUser(Methods.IFearDies user){
+if(user == null) return;
+if(_users_IFearDies.Contains(user)) _users_IFearDies.Remove(user);
+}
+public static void FearDies(){
+_users_IFearDies.ForEach(x=> x.FearDies());   
+}
 
-}public interface IAll_Group_Events:Methods.IFearsFlee{ }
+}public interface IAll_Group_Events:Methods.IFearsFlee,Methods.IFearDies{ }
 
 }
 }
@@ -183,6 +196,8 @@ if(user is Groups.Level.Methods.IOnLevelStart)
 	Groups.Level.Invoke.RegisterUser(user as Groups.Level.Methods.IOnLevelStart);
 if(user is Groups.Fear.Methods.IFearsFlee)
 	Groups.Fear.Invoke.RegisterUser(user as Groups.Fear.Methods.IFearsFlee);
+if(user is Groups.Fear.Methods.IFearDies)
+	Groups.Fear.Invoke.RegisterUser(user as Groups.Fear.Methods.IFearDies);
 
 }static partial void UnRegesterUserImplementation(object user)  {
 if(!(user is Tools.IEventMethodBase))return; if(user is Groups.Resetable.Methods.IResetInstance)
@@ -203,6 +218,8 @@ if(user is Groups.Level.Methods.IOnLevelStart)
 	Groups.Level.Invoke.UnRegisterUser(user as Groups.Level.Methods.IOnLevelStart);
 if(user is Groups.Fear.Methods.IFearsFlee)
 	Groups.Fear.Invoke.UnRegisterUser(user as Groups.Fear.Methods.IFearsFlee);
+if(user is Groups.Fear.Methods.IFearDies)
+	Groups.Fear.Invoke.UnRegisterUser(user as Groups.Fear.Methods.IFearDies);
 
 }
 }
