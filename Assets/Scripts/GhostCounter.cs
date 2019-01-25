@@ -44,6 +44,7 @@ public class GhostCounter : Events.Tools.MonoBehaviour_EventManagerBase, Events.
     {
         image.sprite = im;
         image.enabled = true;
+        CameraShake.Shake(timeOnScreen, 0.2f);
         yield return new WaitForSeconds(timeOnScreen);
         image.enabled = false;
     }
