@@ -13,14 +13,7 @@ namespace Assets.Scripts.Wave
             if (!base.Spawn()) return false;
             for (int i = 0; i < _enemySettings.Count; i++)
             {
-                var enemy = _enemySettings[i].Prefab;
-                var path = _enemySettings[i].Path;
-                var fearScript = _enemySettings[i].FearScript;
-                Instantiate<GameObject>(enemy);
-                fearScript.Walker.spline = path;
-                _fearInstances.Add(fearScript);
-                enemy.SetActive(true);
-                _currentSpawnCount++;
+                SpawnEnemy(i);
             }
             return true;
         }

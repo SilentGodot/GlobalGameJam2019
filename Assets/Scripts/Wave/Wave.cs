@@ -20,7 +20,7 @@ namespace Assets.Scripts.Wave
 
 
         protected bool isSpawning = false;
-        [SerializeField] protected List<Fear> _fearInstances;
+        [SerializeField] protected List<GameObject> _fearInstances;
 
         protected virtual void Start()
         {
@@ -53,8 +53,29 @@ namespace Assets.Scripts.Wave
         public bool IsDone {
             get
             {
-                return ((!_enemySettings.Any(x => x != null && x.Prefab.activeInHierarchy))
+                return ((!_fearInstances.Any(x => x != null && x.activeInHierarchy))
                     && (_currentSpawnCount == _spawnCount));
+            }
+        }
+
+        protected virtual void SpawnEnemy(int i)
+        {
+            var enemy = _enemySettings[i].Prefab;
+            var path = _enemySettings[i].Path;
+            var instance = Instantiate<GameObject>(enemy);
+            var fearScript = instance.GetComponent<Fear>();
+            fearScript.Walker.spline = path;
+            _fearInstances.Add(instance);
+            instance.SetActive(true);
+            _currentSpawnCount++;
+        }
+
+
+        public virtual void CleanAllEnemies()
+        {
+            foreach (var enemySet in _fearInstances)
+            {
+                Destroy(enemySet);
             }
         }
 
@@ -72,7 +93,6 @@ namespace Assets.Scripts.Wave
     {
         [SerializeField] GameObject prefab;
         [SerializeField] BezierSpline path;
-        [SerializeField] Fear fearScript;
 
         public GameObject Prefab
         {
@@ -97,19 +117,6 @@ namespace Assets.Scripts.Wave
             set
             {
                 path = value;
-            }
-        }
-
-        public Fear FearScript
-        {
-            get
-            {
-                return fearScript;
-            }
-
-            set
-            {
-                fearScript = value;
             }
         }
     }

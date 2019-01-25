@@ -21,6 +21,7 @@ public class onHit : MonoBehaviour {
         {
             this.gameObject.SetActive(false);
             Events.Groups.Fear.Invoke.FearDies();
+            //Destroy(gameObject);
         }
 
     }
