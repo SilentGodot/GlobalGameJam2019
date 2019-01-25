@@ -52,7 +52,7 @@ public class PlayerMovement : Events.Tools.MonoBehaviour_EventManagerBase//, Eve
     // Use this for initialization
     void Start()
     {
-
+       
     }
 
     // Update is called once per frame
@@ -61,6 +61,6 @@ public class PlayerMovement : Events.Tools.MonoBehaviour_EventManagerBase//, Eve
         if (isMovmentEnabled && !attFun.Activated)
             Move();
 
-        
     }
+    
 }
