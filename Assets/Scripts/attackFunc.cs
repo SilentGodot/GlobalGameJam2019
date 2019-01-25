@@ -6,6 +6,7 @@ public class attackFunc : MonoBehaviour {
 
     [SerializeField] Rigidbody2D playerObj;
     [SerializeField] GameObject attackObj;
+//    [SerializeField] Quaternion rot; // Nice for figuring out angles
 
     bool activated;
     float attackTime;
@@ -50,6 +51,8 @@ public class attackFunc : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        //attackObj.transform.rotation = rot; //GET RID O THIS AFTERWARDS
+
         Move();
 
         if (Input.GetKey(KeyCode.Z) && (AttackTime <= 0))
@@ -67,7 +70,7 @@ public class attackFunc : MonoBehaviour {
                 else if (Input.GetKey(KeyCode.RightArrow))
                     attackObj.transform.rotation = new Quaternion(-1, 1, 0, 0); // pointing right
                 
-            
+
             attackObj.SetActive(true);//MAKE VISIBLE
             AttackTime = 0.2f;
 
