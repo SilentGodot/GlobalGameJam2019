@@ -50,10 +50,18 @@ namespace Assets.Scripts.Wave
             return true;
         }
 
-        public bool IsDone()
+        public bool IsDone {
+            get
+            {
+                return ((!_enemySettings.Any(x => x != null && x.Prefab.activeInHierarchy))
+                    && (_currentSpawnCount == _spawnCount));
+            }
+        }
+
+        public virtual void StartSpawn()
         {
-            var firstActiveInstance = _enemySettings.FirstOrDefault(x => x != null && x.Prefab.activeInHierarchy);
-            return ((firstActiveInstance == null) && (_currentSpawnCount == _spawnCount));
+            isSpawning = true;
+            Spawn();
         }
 
 

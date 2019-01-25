@@ -30,15 +30,15 @@ namespace Assets.Scripts.Wave
         //    base.Start();
         //}
 
-        protected override void Update()
-        {
-            base.Update();
-            if (Input.GetKeyDown(KeyCode.X))
-            {
-                isSpawning = true;
-                Spawn();
-            }
-        }
+        //protected override void Update()
+        //{
+        //    base.Update();
+        //    if (Input.GetKeyDown(KeyCode.X))
+        //    {
+        //        isSpawning = true;
+        //        Spawn();
+        //    }
+        //}
 
     }
 }

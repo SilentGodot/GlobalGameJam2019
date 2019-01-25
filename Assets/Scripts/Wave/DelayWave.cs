@@ -10,15 +10,15 @@ namespace Assets.Scripts.Wave
     {
         [SerializeField] public List<float> delays;
 
-        private float timePassed;
+        private float timeDelta;
 
         protected override bool Spawn()
         {
             if (!base.Spawn()) return false;
-            if (Time.time - timePassed > delays[_currentSpawnCount])
+            if (Time.time - timeDelta > delays[_currentSpawnCount])
             {
                 int i = _currentSpawnCount;
-                timePassed = Time.deltaTime;
+                timeDelta = Time.deltaTime;
                 var enemy = _enemySettings[i].Prefab;
                 var path = _enemySettings[i].Path;
                 var fearScript = _enemySettings[i].FearScript;
@@ -34,8 +34,6 @@ namespace Assets.Scripts.Wave
         protected override void Start()
         {
             base.Start();
-            isSpawning = true;
-            timePassed = Time.deltaTime;
         }
 
         protected override void Update()
@@ -44,5 +42,11 @@ namespace Assets.Scripts.Wave
             Spawn();
         }
 
+        public override void StartSpawn()
+        {
+            base.StartSpawn();
+            isSpawning = true;
+            timeDelta = Time.deltaTime;
+        }
     }
 }
