@@ -58,8 +58,6 @@ public class PlayerMovement : Events.Tools.MonoBehaviour_EventManagerBase//, Eve
     {
         if (isMovmentEnabled )
             Move();
-
-
-
+        
     }
 }
