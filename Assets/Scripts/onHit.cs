@@ -17,7 +17,7 @@ public class onHit : MonoBehaviour {
     // Works when two objects have 'Is Trigger' turned off.
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Attack")
+        if (collision.gameObject.tag == "Attack" && collision.gameObject.active)
         {
             this.gameObject.SetActive(false);
             Events.Groups.Fear.Invoke.FearDies();

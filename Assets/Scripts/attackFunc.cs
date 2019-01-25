@@ -8,7 +8,10 @@ public class attackFunc : MonoBehaviour {
     [SerializeField] Rigidbody2D playerObj;
     [SerializeField] GameObject attackObj;
     [SerializeField] int lastKey; // for enum
-//    [SerializeField] Quaternion rot; // Nice for figuring out angles
+    [SerializeField] SpriteRenderer img;
+    [SerializeField] PolygonCollider2D attackCollider;
+
+    //    [SerializeField] Quaternion rot; // Nice for figuring out angles
 
 
     bool activated;
@@ -49,12 +52,14 @@ public class attackFunc : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        attackObj.SetActive(false);
+        attackObj.SetActive(true);
         lastKey = 276;
+        img.enabled = false;//MAKE INVISIBLE
+        attackCollider.enabled = false;
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update () {
         //attackObj.transform.rotation = rot; //GET RID O THIS AFTERWARDS
         System.Action<ITween<float>> updateQuat = (t) =>
         {
@@ -67,7 +72,9 @@ public class attackFunc : MonoBehaviour {
 
         if (Input.GetKey(KeyCode.Z) && (AttackTime <= 0))
         {
-            
+           img.enabled = true;//MAKE VISIBLE
+           attackCollider.enabled = true;
+
             Activated = true;
             // Change rotation according to pressed key
 
@@ -103,10 +110,10 @@ public class attackFunc : MonoBehaviour {
             float startAngle = attackObj.transform.rotation.eulerAngles.z;
             float endAngle = startAngle + 90.0f;
             TweenFactory.Tween(null, startAngle, endAngle, 0.2f, TweenScaleFunctions.Linear, updateQuat);
-            
+
             //*/
 
-            attackObj.SetActive(true);//MAKE VISIBLE
+            
             AttackTime = 0.2f;
 
         }
@@ -119,7 +126,8 @@ public class attackFunc : MonoBehaviour {
             if (AttackTime < 0f)
             {
                 Activated = false;
-                attackObj.SetActive(false); //MAKE INVISIBLE
+                img.enabled = false; //MAKE INVISIBLE
+                attackCollider.enabled = false;
             }
 
 
