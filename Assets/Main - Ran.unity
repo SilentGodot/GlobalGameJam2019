@@ -113,125 +113,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &305561315 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1607884959378584, guid: 716bc3a91491bff41bd7b701df6a757c,
-    type: 2}
-  m_PrefabInternal: {fileID: 865065879}
---- !u!4 &305561319 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4521432186650798, guid: 716bc3a91491bff41bd7b701df6a757c,
-    type: 2}
-  m_PrefabInternal: {fileID: 865065879}
---- !u!114 &305561320 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114335698986885316, guid: 716bc3a91491bff41bd7b701df6a757c,
-    type: 2}
-  m_PrefabInternal: {fileID: 865065879}
-  m_Script: {fileID: 11500000, guid: 4c3c61b4b992db7459416b2d75ff07eb, type: 3}
---- !u!1 &377404581
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 377404583}
-  - component: {fileID: 377404582}
-  m_Layer: 0
-  m_Name: FearWave
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &377404582
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 377404581}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60f6355e0912f3e47a0631b40486e8be, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _enemySettings:
-  - prefab: {fileID: 305561315}
-    path: {fileID: 778643881}
-    fearScript: {fileID: 305561320}
-  - prefab: {fileID: 1009434745}
-    path: {fileID: 1363447739}
-    fearScript: {fileID: 1009434744}
-  _spawnCount: 2
-  _fearInstances: []
---- !u!4 &377404583
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 377404581}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.9377374, y: 0.11138343, z: -0.0018067202}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 778643882}
-  - {fileID: 305561319}
-  - {fileID: 1009434746}
-  - {fileID: 1363447740}
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &778643880
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 778643882}
-  - component: {fileID: 778643881}
-  m_Layer: 0
-  m_Name: Path1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &778643881
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 778643880}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b154883273c2845f39445c8015d81639, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  points:
-  - {x: 7.2062073, y: -3.3733616, z: 0}
-  - {x: -7.929676, y: -6.750344, z: 0}
-  - {x: -10.479805, y: -3.8715696, z: 0}
-  - {x: -9.037815, y: 3.328219, z: 0}
-  - {x: 3.0559807, y: 6.872066, z: 0}
-  - {x: 8.123072, y: 2.4680476, z: 0}
-  - {x: 7.2062073, y: -3.3733616, z: 0}
-  modes: 000000000000000000000000
-  loop: 1
---- !u!4 &778643882
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 778643880}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 377404583}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &803856795
 GameObject:
   m_ObjectHideFlags: 0
@@ -333,7 +214,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 978816906}
   m_LocalRotation: {x: 0.9999848, y: 0.00000020861623, z: 0.00000009220092, w: 0.005513456}
-  m_LocalPosition: {x: 0.03, y: -0.69, z: 0}
+  m_LocalPosition: {x: -0.01, y: -0.499, z: 0.006}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1048624345}
@@ -425,14 +306,12 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.08030298, y: -0.46828625}
-      - {x: 0.018131424, y: -0.47233737}
-      - {x: -0.037811156, y: -0.77675194}
-      - {x: -0.05990664, y: -0.968816}
-      - {x: -0.05418821, y: -1.1937099}
-      - {x: 0.018558592, y: -1.327933}
-      - {x: 0.11140452, y: -1.275117}
-      - {x: 0.14806789, y: -0.7615767}
+    - - {x: 0.11446512, y: -0.56008464}
+      - {x: 0.015068164, y: -0.2752577}
+      - {x: -0.099307396, y: -0.58705384}
+      - {x: -0.106628515, y: -0.9981241}
+      - {x: -0.014014601, y: -1.1496662}
+      - {x: 0.07083522, y: -1.0795972}
 --- !u!4 &1048624345
 Transform:
   m_ObjectHideFlags: 0
@@ -440,7 +319,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1048624341}
   m_LocalRotation: {x: -0, y: -0, z: 0.7142604, w: 0.6998801}
-  m_LocalPosition: {x: -0.40967527, y: 0.26979765, z: -0.027767578}
+  m_LocalPosition: {x: -0.531, y: 0.225, z: -0.027767578}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 978816907}
@@ -610,6 +489,7 @@ GameObject:
   - component: {fileID: 2088675386}
   - component: {fileID: 2088675385}
   - component: {fileID: 2088675388}
+  - component: {fileID: 2088675390}
   - component: {fileID: 2088675389}
   m_Layer: 0
   m_Name: Player
@@ -712,6 +592,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 2088675384}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e3a1ebd9548bfd479d37eb218fce39f, type: 3}
+  m_Script: {fileID: 11500000, guid: 6bd714af3506cca43b4966d6b7bca43c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerObj: {fileID: 2088675385}
+  attackObj: {fileID: 1048624341}
+--- !u!114 &2088675390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2088675384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a0247529ed8427449f0b5ae79c754d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

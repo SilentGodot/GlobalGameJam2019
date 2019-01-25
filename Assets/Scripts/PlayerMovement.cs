@@ -12,6 +12,7 @@ public class PlayerMovement : Events.Tools.MonoBehaviour_EventManagerBase//, Eve
     [SerializeField] float maxSpeed;
     [SerializeField] Rigidbody2D movedObject;
     [SerializeField] GameObject attackObj;
+    [SerializeField] attackFunc attFun;
     float currnetSpeed;
     Vector2 direction;
 
@@ -57,7 +58,7 @@ public class PlayerMovement : Events.Tools.MonoBehaviour_EventManagerBase//, Eve
     // Update is called once per frame
     void Update()
     {
-        if (isMovmentEnabled )
+        if (isMovmentEnabled && !attFun.Activated)
             Move();
 
         

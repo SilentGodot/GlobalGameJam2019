@@ -52,20 +52,21 @@ public class attackFunc : MonoBehaviour {
 	void Update () {
         Move();
 
-        if (Input.GetKey(KeyCode.Z))
+        if (Input.GetKey(KeyCode.Z) && (AttackTime <= 0))
         {
             
             Activated = true;
             // Change rotation according to pressed key
             
-            if (Input.GetKey(KeyCode.UpArrow))
-                attackObj.transform.rotation = new Quaternion(1, 0, 0, 0); // pointing up
-            else if (Input.GetKey(KeyCode.DownArrow))
-                attackObj.transform.rotation = new Quaternion(0, 1, 0, 0); // pointing down
-            else if (Input.GetKey(KeyCode.LeftArrow))
-                attackObj.transform.rotation = new Quaternion(1, 1, 0, 0); // pointing left
-            else if (Input.GetKey(KeyCode.RightArrow))
-                attackObj.transform.rotation = new Quaternion(-1, 1, 0, 0); // pointing right
+                if (Input.GetKey(KeyCode.UpArrow))
+                    attackObj.transform.rotation = new Quaternion(1, 0, 0, 0); // pointing up
+                else if (Input.GetKey(KeyCode.DownArrow))
+                    attackObj.transform.rotation = new Quaternion(0, 1, 0, 0); // pointing down
+                else if (Input.GetKey(KeyCode.LeftArrow))
+                    attackObj.transform.rotation = new Quaternion(1, 1, 0, 0); // pointing left
+                else if (Input.GetKey(KeyCode.RightArrow))
+                    attackObj.transform.rotation = new Quaternion(-1, 1, 0, 0); // pointing right
+                
             
             attackObj.SetActive(true);//MAKE VISIBLE
             AttackTime = 0.2f;
