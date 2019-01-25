@@ -11,8 +11,8 @@ namespace Assets.Scripts.Wave
         [SerializeField] public List<EnemySettings> _enemySettings;
 
 
-        [SerializeField] protected int _spawnCount;
-        protected int _currentSpawnCount;
+        protected int _spawnCount;
+        protected int _currentSpawnCount = 0;
                 
         [Space]
         [Header("Spawn Pos")]
@@ -26,6 +26,7 @@ namespace Assets.Scripts.Wave
         {
             _spawnPositionTransform = transform;
             _enemySettings = _enemySettings.Where(x => x != null).ToList();
+            _spawnCount = _enemySettings.Count;
         }
 
         // Update is called once per frame
