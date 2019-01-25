@@ -5,10 +5,10 @@ using UnityEngine;
 public class launch : MonoBehaviour {
 
     [SerializeField] Rigidbody2D playerObj;
-    [SerializeField] Transform attackObj;
+    [SerializeField] GameObject attackObj;
 
-    
     bool activated;
+    float attackTime;
 
     public bool Activated
     {
@@ -23,27 +23,54 @@ public class launch : MonoBehaviour {
         }
     }
 
+    public float AttackTime
+    {
+        get
+        {
+            return attackTime;
+        }
+
+        set
+        {
+            attackTime = value;
+        }
+    }
+
+
     public void Move()
     {
-
-        attackObj.position = playerObj.position + new Vector2(0.2f,0f);
-       
-
+        attackObj.transform.position = playerObj.position + new Vector2(0.2f, 0f);
     }
 
 
     // Use this for initialization
     void Start () {
+        attackObj.SetActive(false);
 
-		
-	}
+    }
 	
 	// Update is called once per frame
 	void Update () {
         Move();
 
-        if (Input.GetButton("z"))
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            
             Activated = true;
+            attackObj.SetActive(true);//MAKE VISIBLE
+            AttackTime = 0.2f;
 
+        }
+
+        if (AttackTime > 0)
+        {
+            AttackTime -= Time.deltaTime;
+            if (AttackTime < 0f)
+            {
+                Activated = false;
+                attackObj.SetActive(false); //MAKE INVISIBLE
+            }
+
+        }
     }
 }

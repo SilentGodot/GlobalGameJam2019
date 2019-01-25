@@ -11,6 +11,7 @@ public class PlayerMovement : Events.Tools.MonoBehaviour_EventManagerBase//, Eve
     [SerializeField] float decelertion;
     [SerializeField] float maxSpeed;
     [SerializeField] Rigidbody2D movedObject;
+    [SerializeField] GameObject attackObj;
     float currnetSpeed;
     Vector2 direction;
 
@@ -58,6 +59,7 @@ public class PlayerMovement : Events.Tools.MonoBehaviour_EventManagerBase//, Eve
     {
         if (isMovmentEnabled )
             Move();
+
         
     }
 }
