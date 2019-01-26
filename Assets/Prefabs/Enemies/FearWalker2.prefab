@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 114097891300024006}
   - component: {fileID: 114022604263162258}
   m_Layer: 0
-  m_Name: FearWalker2 1
+  m_Name: FearWalker2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
