@@ -28,7 +28,7 @@ public class onHit : MonoBehaviour {
             // Detach children
             gameObj_fear.transform.DetachChildren();
 
-            //this.gameObject.SetActive(false);
+            this.gameObject.SetActive(false);
             Events.Groups.Fear.Invoke.FearDies();
             //Destroy(gameObject);
         }
