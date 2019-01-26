@@ -10,6 +10,8 @@ public class attackFunc : MonoBehaviour {
     [SerializeField] int lastKey; // for enum
     [SerializeField] SpriteRenderer img;
     [SerializeField] PolygonCollider2D attackCollider;
+    [SerializeField] ParticleSystem particle1;
+    [SerializeField] ParticleSystem particle2;
 
     //    [SerializeField] Quaternion rot; // Nice for figuring out angles
 
@@ -56,6 +58,8 @@ public class attackFunc : MonoBehaviour {
         lastKey = 276;
         img.enabled = false;//MAKE INVISIBLE
         attackCollider.enabled = false;
+        particle1.Stop();
+        particle2.Stop();
     }
 
     // Update is called once per frame
@@ -74,6 +78,12 @@ public class attackFunc : MonoBehaviour {
         {
            img.enabled = true;//MAKE VISIBLE
            attackCollider.enabled = true;
+
+            particle1.Play();
+            particle2.Play();
+            particle1.transform.parent = attackObj.transform;
+            particle2.transform.parent = attackObj.transform;
+
 
             Activated = true;
             // Change rotation according to pressed key
@@ -109,12 +119,12 @@ public class attackFunc : MonoBehaviour {
             //*
             float startAngle = attackObj.transform.rotation.eulerAngles.z;
             float endAngle = startAngle + 90.0f;
-            TweenFactory.Tween(null, startAngle, endAngle, 0.2f, TweenScaleFunctions.Linear, updateQuat);
+            TweenFactory.Tween(null, startAngle, endAngle, 0.3f, TweenScaleFunctions.Linear, updateQuat);
 
             //*/
 
             
-            AttackTime = 0.2f;
+            AttackTime = 0.3f;
 
         }
         
@@ -128,10 +138,26 @@ public class attackFunc : MonoBehaviour {
                 Activated = false;
                 img.enabled = false; //MAKE INVISIBLE
                 attackCollider.enabled = false;
+                particle1.Stop();
+                particle2.Stop();
             }
 
 
         }
     }
 
+}
+
+class PositionReferences : MonoBehaviour
+{
+
+    public Transform[] positions;
+    private int index = 0;
+
+    public Vector3 GetNextPosition()
+    {
+        Vector3 result = positions[index].localPosition;
+        index = index + 1;
+        return result;
+    }
 }
