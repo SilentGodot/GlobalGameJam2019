@@ -18,15 +18,7 @@ namespace Assets.Scripts.Wave
             if (Time.time - timeDelta > delays[_currentSpawnCount])
             {
                 int i = _currentSpawnCount;
-                timeDelta = Time.deltaTime;
-                var enemy = _enemySettings[i].Prefab;
-                var path = _enemySettings[i].Path;
-                var fearScript = _enemySettings[i].FearScript;
-                Instantiate<GameObject>(enemy);
-                fearScript.Walker.spline = path;
-                _fearInstances.Add(fearScript);
-                enemy.SetActive(true);
-                _currentSpawnCount++;
+                SpawnEnemy(i);
             }
             return true;
         }
@@ -46,7 +38,7 @@ namespace Assets.Scripts.Wave
         {
             base.StartSpawn();
             isSpawning = true;
-            timeDelta = Time.deltaTime;
+            timeDelta = Time.time;
         }
     }
 }

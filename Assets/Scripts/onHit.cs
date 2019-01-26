@@ -20,6 +20,8 @@ public class onHit : MonoBehaviour {
         if (collision.gameObject.tag == "Attack")
         {
             this.gameObject.SetActive(false);
+            Events.Groups.Fear.Invoke.FearDies();
+            //Destroy(gameObject);
         }
 
     }

@@ -28,6 +28,7 @@ public class WavesManger : Events.Tools.MonoBehaviour_EventManagerBase,
             waves[i].StartSpawn();
             print("Wave " + i);
             yield return new WaitUntil(()=> waves[i].IsDone);
+            waves[i].CleanAllEnemies();
             
         }
     }

@@ -3,9 +3,7 @@ using System.Collections.Generic;
 using Events;
 using UnityEngine;
 
-public class Fear : Tools.MonoBehaviour_EventManagerBase
-    , Events.Groups.Resetable.IAll_Group_Events
-    , Events.Groups.Fear.IAll_Group_Events
+public class Fear : MonoBehaviour
 
 
 {
@@ -64,10 +62,5 @@ public class Fear : Tools.MonoBehaviour_EventManagerBase
         var direction_from_player = my_location - player_location;
         // direction_from_player = Quaternion.Euler(0, 0, -180) * direction_from_player;
         
-    }
-
-    public void FearsFlee()
-    {
-        // TODO
     }
 }
