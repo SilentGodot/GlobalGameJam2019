@@ -24,6 +24,7 @@ public class onHit : MonoBehaviour {
         if (collision.gameObject.tag == "Attack" && collision.gameObject.activeInHierarchy)
         {
             img.enabled = false;
+            death_particle.Play();
             // Detach children
             gameObj_fear.transform.DetachChildren();
 

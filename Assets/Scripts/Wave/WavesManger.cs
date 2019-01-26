@@ -39,7 +39,10 @@ public class WavesManger : Events.Tools.MonoBehaviour_EventManagerBase,
         {
             LevelManager.Instance.LoadScene("GoodEnd");
         }
-        LevelManager.Instance.LoadScene("BadEnd");
+        else
+        {
+            LevelManager.Instance.LoadScene("BadEnd");
+        }
     }
 
 
