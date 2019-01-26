@@ -7,7 +7,9 @@ public class GhostCounter : Events.Tools.MonoBehaviour_EventManagerBase, Events.
 {
 
     [SerializeField] public List<GhostTrigger> triggers;
-    public Image image;
+    public Image spookImage;
+    public Image foreground;
+    public float foregroundDarkenStep = 0.1f;
     public float timeOnScreen;
 
     private uint fearCount = 0;
@@ -42,11 +44,22 @@ public class GhostCounter : Events.Tools.MonoBehaviour_EventManagerBase, Events.
 
     public IEnumerator ShowImage(Sprite im)
     {
-        image.sprite = im;
-        image.enabled = true;
-        CameraShake.Shake(timeOnScreen, 0.09f);
+        spookImage.sprite = im;
+
+        // show spooktext
+        spookImage.enabled = true;
+        // Play spooky sound
+        GetComponent<AudioSource>().Play();
+        // shake screen
+        CameraShake.Shake(timeOnScreen/3, 0.09f);
+        //darken foreground
+        var c = foreground.color;
+        c.a += foregroundDarkenStep;
+        foreground.color = c;
+
+        //wait and remove image
         yield return new WaitForSeconds(timeOnScreen);
-        image.enabled = false;
+        spookImage.enabled = false;
     }
 }
 

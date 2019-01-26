@@ -62,11 +62,15 @@ namespace Assets.Scripts.Wave
         {
             var enemy = _enemySettings[i].Prefab;
             var path = _enemySettings[i].Path;
+
             var instance = Instantiate<GameObject>(enemy);
             var fearScript = instance.GetComponent<Fear>();
+
             fearScript.Walker.spline = path;
+
             _fearInstances.Add(instance);
             instance.SetActive(true);
+
             _currentSpawnCount++;
         }
 
