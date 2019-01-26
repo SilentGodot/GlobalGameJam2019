@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 114449672228165514}
   - component: {fileID: 82832508874736052}
   m_Layer: 0
-  m_Name: Level 1
+  m_Name: Level v2_FINAL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1442,6 +1442,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2209c32dbcd152e41a894337fe279bde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  goodEndThreshold: 0
   waves:
   - {fileID: 114809884486880690}
   - {fileID: 114039963348496060}

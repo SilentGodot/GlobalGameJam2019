@@ -46,7 +46,16 @@ public class PlayerMovement : Events.Tools.MonoBehaviour_EventManagerBase//, Eve
 
     }
 
+    // Works when two objects have 'Is Trigger' turned off.
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "StartAxe" && collision.gameObject.activeInHierarchy)
+        {
+            Events.Groups.Level.Invoke.OnLevelStart();
+            collision.gameObject.SetActive(false);
+        }
 
+    }
 
 
     // Use this for initialization

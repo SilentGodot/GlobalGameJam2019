@@ -21,7 +21,7 @@ public class onHit : MonoBehaviour {
     // Works when two objects have 'Is Trigger' turned off.
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Attack" && collision.gameObject.active)
+        if (collision.gameObject.tag == "Attack" && collision.gameObject.activeInHierarchy)
         {
             img.enabled = false;
             death_particle.Play();
