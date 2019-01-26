@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using DigitalRuby.Tween;
 
-public class attackFunc : MonoBehaviour {
+public class attackFunc : Events.Tools.MonoBehaviour_EventManagerBase, Events.Groups.Level.IAll_Group_Events
+{
 
     [SerializeField] Rigidbody2D playerObj;
     [SerializeField] GameObject attackObj;
@@ -12,12 +13,14 @@ public class attackFunc : MonoBehaviour {
     [SerializeField] PolygonCollider2D attackCollider;
     [SerializeField] ParticleSystem particle1;
     [SerializeField] ParticleSystem particle2;
+    [SerializeField] AudioClip swingSound;
 
     //    [SerializeField] Quaternion rot; // Nice for figuring out angles
 
 
     bool activated;
     float attackTime;
+    bool haveAxe = false;
 
     public bool Activated
     {
@@ -51,6 +54,15 @@ public class attackFunc : MonoBehaviour {
         attackObj.transform.position = playerObj.position;
     }
 
+    public void OnLevelEnd()
+    {
+    }
+
+    public void OnLevelStart()
+    {
+        haveAxe = true;
+    }
+
 
     // Use this for initialization
     void Start () {
@@ -64,6 +76,9 @@ public class attackFunc : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
+        if (!haveAxe)
+            return;
+
         //attackObj.transform.rotation = rot; //GET RID O THIS AFTERWARDS
         System.Action<ITween<float>> updateQuat = (t) =>
         {
@@ -83,6 +98,7 @@ public class attackFunc : MonoBehaviour {
             particle2.Play();
             particle1.transform.parent = attackObj.transform;
             particle2.transform.parent = attackObj.transform;
+            GetComponent<AudioSource>().PlayOneShot(swingSound);
 
 
             Activated = true;

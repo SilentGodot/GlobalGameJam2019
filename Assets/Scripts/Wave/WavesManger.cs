@@ -5,13 +5,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class WavesManger : Events.Tools.MonoBehaviour_EventManagerBase, 
-    Events.Groups.Level.Methods.IOnLevelStart
+    Events.Groups.Level.Methods.IOnLevelStart,
+    Events.Groups.Fear.IAll_Group_Events
 
 {
-
+    [SerializeField] uint goodEndThreshold;
     [SerializeField] List<Wave> waves;
 
     bool isStarted;
+    uint fearDeathCount = 0;
 
     public void StartWave()
     {
@@ -31,6 +33,13 @@ public class WavesManger : Events.Tools.MonoBehaviour_EventManagerBase,
             waves[i].CleanAllEnemies();
             
         }
+
+        // All waves finished! Go to ending
+        if (fearDeathCount >= goodEndThreshold)
+        {
+            LevelManager.Instance.LoadScene("GoodEnd");
+        }
+        LevelManager.Instance.LoadScene("BadEnd");
     }
 
 
@@ -44,9 +53,10 @@ public class WavesManger : Events.Tools.MonoBehaviour_EventManagerBase,
     // Update is called once per frame
     protected virtual void Update()
     {
-        if (Input.GetKeyDown(KeyCode.X))
-        {
-            Events.Groups.Level.Invoke.OnLevelStart();
-        }
+    }
+
+    public void FearDies()
+    {
+        fearDeathCount++;
     }
 }
