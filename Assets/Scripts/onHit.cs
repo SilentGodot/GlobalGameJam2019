@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class onHit : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
+    [SerializeField] ParticleSystem death_particle;
+    [SerializeField] SpriteRenderer img;
+    [SerializeField] GameObject gameObj_fear;
+
+    // Use this for initialization
+    void Start () {
 		
 	}
 	
@@ -19,7 +23,12 @@ public class onHit : MonoBehaviour {
     {
         if (collision.gameObject.tag == "Attack" && collision.gameObject.active)
         {
-            this.gameObject.SetActive(false);
+            img.enabled = false;
+            death_particle.Play();
+            // Detach children
+            gameObj_fear.transform.DetachChildren();
+
+            //this.gameObject.SetActive(false);
             Events.Groups.Fear.Invoke.FearDies();
             //Destroy(gameObject);
         }
